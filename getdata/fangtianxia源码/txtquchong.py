@@ -1,0 +1,15 @@
+f = open('重庆.txt','r',encoding = 'gb18030')
+xiaoqus = set()
+for line in f.readlines():
+    line = line.strip()
+    # print(line)
+    str_result = line.split(",")
+    tmp_result = str_result[0].split(":")
+    community_name = tmp_result[1].replace('"', '').strip()
+    print(community_name)
+    xiaoqus.add(community_name)
+# print(xiaoqus)
+for xiaoqu in xiaoqus:
+    fout = open("重庆(去重).txt", "a+", encoding='gb18030')
+    print(xiaoqu, file=fout)
+    fout.close()
